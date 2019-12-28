@@ -1,4 +1,5 @@
 ﻿using System;
+using OpenTK;
 
 namespace netcore3_opentk_gl_experimental
 {
@@ -6,7 +7,7 @@ namespace netcore3_opentk_gl_experimental
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            new MainWindow().Run(60);
         }
     }
 }

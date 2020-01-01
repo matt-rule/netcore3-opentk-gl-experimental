@@ -1,6 +1,7 @@
 ﻿using System;
 using OpenTK;
 using OpenTK.Graphics;
+using OpenTK.Graphics.OpenGL4;
 
 namespace netcore3_opentk_gl_experimental
 {
@@ -37,7 +38,10 @@ namespace netcore3_opentk_gl_experimental
 
         protected override void OnRenderFrame(FrameEventArgs e)
         {
-            
+            GL.ClearColor(0.0f, 0.5f, 0.0f, 1.0f);
+            GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
+
+            SwapBuffers();
         }
     }
 }

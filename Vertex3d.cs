@@ -1,7 +1,7 @@
 using OpenTK;
 using OpenTK.Graphics;
 
-namespace OpenGL4Demo
+namespace netcore3_opentk_gl_experimental
 {
     public struct Vertex3d
     {

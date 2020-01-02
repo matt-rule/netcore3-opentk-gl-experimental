@@ -9,5 +9,14 @@
   <ItemGroup>
     <PackageReference Include="opentk.netstandard" Version="1.0.4" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <None Include="shader.vert">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="shader.frag">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 
 </Project>

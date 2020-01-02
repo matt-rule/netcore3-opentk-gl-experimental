@@ -46,6 +46,7 @@ namespace netcore3_opentk_gl_experimental
             .Select(x => GlCustomUtil.GeometryTo3dObject(x))
             .ToList();
 
+            // TODO: Use the unbind function to clean up. Maybe have a class CustomGlContext.
             foreach (Object3d obj3d in GameObjects)
                 GlCustomUtil.Bind3dObject(obj3d);
 

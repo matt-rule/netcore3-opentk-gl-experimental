@@ -31,7 +31,7 @@ namespace netcore3_opentk_gl_experimental
         {
             return new Object3d()
             {
-                Position = new Vector2(300.0f, 200.0f),
+                ModelMatrix = Matrix4.CreateTranslation(new Vector3(300.0f, 200.0f, 0.0f)),
                 Vertices = bufferData.Vertices,
                 Indices = bufferData.Indices,
                 VertexArrayObjectId = GL.GenVertexArray(),
@@ -89,7 +89,7 @@ namespace netcore3_opentk_gl_experimental
                 throw new Exception($"CompileShader {type} had errors: {info}");
             return shader;
         }
-        
+
         public static ShaderProgram CreateShaderProgram()
         {
             try

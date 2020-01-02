@@ -4,7 +4,7 @@ namespace netcore3_opentk_gl_experimental
 {
     public struct Object3d
     {
-        public Vector2 Position;
+        public Matrix4 ModelMatrix;
         public Vertex3d[] Vertices;
         public uint[] Indices;
         public int VertexArrayObjectId;

@@ -29,7 +29,7 @@ namespace netcore3_opentk_gl_experimental
     {
         public static Object3d GeometryTo3dObject(BufferData bufferData)
         {
-            return new Object3d()
+            return new Object3d
             {
                 ModelMatrix = Matrix4.CreateTranslation(new Vector3(300.0f, 200.0f, 0.0f)),
                 Vertices = bufferData.Vertices,

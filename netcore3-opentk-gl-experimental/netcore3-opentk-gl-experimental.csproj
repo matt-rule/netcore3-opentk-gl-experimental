@@ -24,7 +24,7 @@
   </ItemGroup>
   
   <ItemGroup>
-    <ProjectReference Include="netcore3-simple-game-engine\netcore3-simple-game-engine.csproj" />
+    <ProjectReference Include="..\netcore3-simple-game-engine\netcore3-simple-game-engine.csproj" />
   </ItemGroup>
 
 </Project>

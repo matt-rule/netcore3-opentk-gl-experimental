@@ -24,23 +24,6 @@ namespace netcore3_opentk_gl_experimental
         public Scene(SceneInfo info)
         {
             sceneInfo = info;
-            
-            GameObjects = new List<BufferData> {
-                Geometry.GetTriangle1(),
-                Geometry.GetTriangle2()
-            }
-            .Select(x => GlCustomUtil.GeometryTo3dObject(x))
-            .ToList();
-        }
-
-        // Usage: Call after OpenGL has been initialised.
-        public void Intialise()
-        {
-            // TODO: Use the unbind function to clean up. Maybe have a class CustomGlContext.
-            foreach (Object3d obj3d in GameObjects)
-                GlCustomUtil.Bind3dObject(obj3d);
-
-            MainShaderProgram = GlCustomUtil.CreateShaderProgram();
         }
 
         public void Update(double elapsedTime)
@@ -68,6 +51,23 @@ namespace netcore3_opentk_gl_experimental
                 GL.DrawElements(PrimitiveType.Triangles, obj.Indices.Length, DrawElementsType.UnsignedInt, 0);
                 var x = GL.GetError();
             }
+        }
+
+        // Usage: Call after OpenGL has been initialised.
+        public void Initialise()
+        {
+            GameObjects = new List<BufferData> {
+                Geometry.GetTriangle1(),
+                Geometry.GetTriangle2()
+            }
+            .Select(x => GlCustomUtil.GeometryTo3dObject(x))
+            .ToList();
+
+            // TODO: Use the unbind function to clean up. Maybe have a class CustomGlContext.
+            foreach (Object3d obj3d in GameObjects)
+                GlCustomUtil.Bind3dObject(obj3d);
+
+            MainShaderProgram = GlCustomUtil.CreateShaderProgram();
         }
     }
 }

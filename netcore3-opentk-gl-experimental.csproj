@@ -6,6 +6,10 @@
     <RootNamespace>netcore3_opentk_gl_experimental</RootNamespace>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <DefaultItemExcludes>$(DefaultItemExcludes);netcore3-simple-game-engine/*</DefaultItemExcludes>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="opentk.netstandard" Version="1.0.4" />
   </ItemGroup>
@@ -17,6 +21,10 @@
     <None Include="shader.frag">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="netcore3-simple-game-engine\netcore3-simple-game-engine.csproj" />
   </ItemGroup>
 
 </Project>

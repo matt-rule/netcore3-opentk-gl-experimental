@@ -19,6 +19,7 @@ namespace netcore3_opentk_gl_experimental
         private ShaderProgram MainShaderProgram;
 
         private double RotationAngle = 0.0;
+        private double xPosition = 0.0;
 
         public MainWindow()
             : base(DEFAULT_WIDTH,
@@ -60,9 +61,23 @@ namespace netcore3_opentk_gl_experimental
             GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
         }
 
+        protected void OnKeyDown(KeyPressEventArgs e)
+        {
+            RotationAngle += 100;
+        }
+
         protected override void OnRenderFrame(FrameEventArgs e)
         {
-            RotationAngle += e.Time;
+            OpenTK.Input.MouseState mouseState = OpenTK.Input.Mouse.GetState();
+
+            if (mouseState.IsButtonDown(OpenTK.Input.MouseButton.Left))
+            {
+                xPosition -= e.Time;
+            }
+            if (mouseState.IsButtonDown(OpenTK.Input.MouseButton.Right))
+            {
+                xPosition += e.Time;
+            }
 
             GL.ClearColor(0.0f, 0.0f, 0.0f, 1.0f);
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
@@ -70,7 +85,7 @@ namespace netcore3_opentk_gl_experimental
             Matrix4 projMatrix = Matrix4.CreateOrthographicOffCenter(0, DEFAULT_WIDTH, 0, DEFAULT_HEIGHT, -1.0f, 1.0f);
             Matrix4 viewMatrix = Matrix4.Identity;
             Matrix4.CreateRotationZ((float)RotationAngle, out Matrix4 tempMatrix);
-            Matrix4.CreateTranslation(-50.0f, -50.0f, 0.0f, out Matrix4 tempMatrix2);
+            Matrix4.CreateTranslation((float)xPosition*200, -50.0f, 0.0f, out Matrix4 tempMatrix2);
 
             foreach (var obj in GameObjects)
             {

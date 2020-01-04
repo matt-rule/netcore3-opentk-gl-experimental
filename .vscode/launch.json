@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/bin/Debug/netcoreapp3.0/netcore3-opentk-gl-experimental.dll",
+            "program": "${workspaceFolder}/netcore3-opentk-gl-experimental/bin/Debug/netcoreapp3.0/netcore3-opentk-gl-experimental.dll",
             "args": [],
-            "cwd": "${workspaceFolder}",
+            "cwd": "${workspaceFolder}/netcore3-opentk-gl-experimental",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",
             "stopAtEntry": false
